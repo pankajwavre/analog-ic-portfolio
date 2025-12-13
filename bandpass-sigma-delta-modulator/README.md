@@ -20,7 +20,7 @@ The Sigma-Delta modulator employs a **continuous-time bandpass architecture**, w
 - Gm-C implementation for compact area and tunability
 - Fully differential signaling for improved noise immunity
 
-![Sigma-Delta System Schematic](figures/sigma_delta_system_schematic.png)
+![Sigma-Delta System Schematic](./figures/sigma_delta_system_schematic.jpg)
 
 ---
 
@@ -33,7 +33,7 @@ The filter is implemented using transconductors and capacitors, enabling frequen
 - Suitable for CMOS integration
 - Enable electronic tuning
 
-![Gm-C Bandpass Filter](figures/gmc_bandpass_filter_schematic.png)
+![Fully Differential OTA Architecture](./figures/fully_differential_ota_architecture.png)
 
 ---
 
@@ -47,7 +47,7 @@ The design focuses on achieving sufficient gain and stability while operating in
 - Common-mode control
 - Stable operation with capacitive loads
 
-![Fully Differential OTA Schematic](figures/fully_differential_ota_schematic.png)
+![Fully Differential OTA Schematic](./figures/fully_differential_ota_schematic.png.jpg)
 
 ---
 
@@ -57,7 +57,7 @@ The OTA and filter are verified using dedicated **AC and transient testbenches**
 - Common-mode biasing
 - Capacitive loading representative of loop conditions
 
-![OTA Testbench](figures/ota_testbench.png)
+![OTA AC Testbench](./figures/ota_ac_testbench.jpg)
 
 ---
 
@@ -66,21 +66,21 @@ The OTA and filter are verified using dedicated **AC and transient testbenches**
 ### AC Gain & Phase Response
 The OTA provides sufficient open-loop gain and phase margin to ensure stable operation within the Sigma-Delta loop.
 
-![AC Gain and Phase](results/ac_gain_phase_response.png)
+![AC Gain and Phase](./results/ac_gain_phase_response.jpg)
 
 ---
 
 ### Bandpass Frequency Response
 The Gm-C filter exhibits a clear bandpass characteristic centered at the target frequency, validating the LP→BP transformation.
 
-![Bandpass Response](results/bandpass_frequency_response.png)
+![Bandpass Response](./results/bandpass_frequency_response.jpg)
 
 ---
 
 ### Noise Shaping (STF & NTF)
 The **Signal Transfer Function (STF)** preserves the desired signal band, while the **Noise Transfer Function (NTF)** suppresses quantization noise within the band of interest.
 
-![STF and NTF](results/stf_ntf_response.png)
+![STF and NTF](./results/stf_ntf_response.jpg)
 
 ---
 
@@ -90,7 +90,7 @@ Transient simulations confirm correct Sigma-Delta operation, demonstrating:
 - High-frequency bitstream output
 - Proper noise-shaping behavior
 
-![Time-Domain Response](results/time_domain_response.png)
+![Time-Domain Response](./results/time_domain_response.jpg)
 
 ---
 
@@ -124,14 +124,14 @@ Transient simulations confirm correct Sigma-Delta operation, demonstrating:
 ---
 
 ## 🛠 Tools & Technologies
-- Cadence Virtuoso
-- Spectre
-- Analog Design Environment (ADE)
+- Cadence Virtuoso  
+- Spectre  
+- Analog Design Environment (ADE)  
 
 ---
 
 ## 👤 Author
 **Pankaj Wavre**  
 Analog IC Design • CMOS Circuit Design • Mixed-Signal Systems  
-🔗 [LinkedIn](https://www.linkedin.com/in/pankajwavre/)  
-🔗 [GitHub](https://github.com/pankjawavre)
+🔗 LinkedIn: https://www.linkedin.com/in/pankajwavre/  
+🔗 GitHub: https://github.com/pankjawavre
