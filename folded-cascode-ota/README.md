@@ -1,131 +1,93 @@
-# Folded-Cascode Fully Differential OTA
+# Folded-Cascode Fully Differential OTA (Class-AB Output)
 
-## 📌 Project Overview
-This project presents the **design, implementation, and verification of a folded-cascode fully differential Operational Transconductance Amplifier (OTA)** with a **Class-AB output stage**.  
-The design was carried out at the **transistor level** and verified using industry-standard analog simulation techniques.
-
-The OTA is intended for **low-noise, high-gain, mixed-signal applications**, such as data converters and continuous-time filters.
+**Author:** Pankaj Wavre  
+**Tagline:** Analog IC Design • CMOS Circuit Design • Mixed-Signal Systems  
+**Tools:** Cadence Virtuoso, Spectre, ADE
 
 ---
 
-## 🧠 Architecture Description
-A folded-cascode topology is selected to achieve:
-- High open-loop gain
-- Wide input common-mode range
-- Improved output swing
-- Good noise and supply rejection
-
-A Class-AB output stage is used to enhance **large-signal drive capability** and **slew rate** while maintaining low quiescent power.
-
-![Folded Cascode OTA Schematic](figures/folded_cascode_schematic.png)
+## Project Overview
+This project documents the **design and verification** of a **folded-cascode fully differential OTA** with a **Class-AB output stage**, targeted for **high gain, wide bandwidth, and robust mixed-signal performance**.  
+Verification includes **AC stability**, **transient behavior across common-mode points**, **slew-rate**, **CMRR**, and **PSRR**.
 
 ---
 
-## ⚙️ Biasing Network
-A dedicated biasing circuit generates the required bias voltages for:
-- Input differential pair
-- Cascode devices
-- Output stage
-
-The bias network ensures stable DC operating points across the amplifier.
-
-![Biasing Circuit](figures/biasing_circuit.png)
+## Contents
+- [`figures/`](./figures) – schematics, biasing, and testbench screenshots  
+- [`results/`](./results) – simulation plots (AC, transient, CMRR, PSRR, slew, etc.)
 
 ---
 
-## 🧪 Testbench Configuration
-The OTA is verified using multiple testbenches including:
-- AC small-signal analysis
-- Transient large-signal analysis
-- Unity-gain follower configuration
-- Supply and common-mode perturbation setups
+## Architecture & Design Blocks
 
-![OTA Testbench](figures/ota_testbench.png)
+### 1) Folded-Cascode Core (Fully Differential)
+Key goal: high intrinsic gain using cascode devices while supporting differential signaling.
 
----
+![Folded Cascode Schematic](./figures/folded_cascode_schematic.png)
 
-## 📈 AC Gain & Phase Response
-The open-loop AC response confirms:
-- High DC gain
-- Stable frequency response
-- Adequate phase margin for closed-loop operation
+### 2) Biasing Network
+Bias voltages/currents generated to place devices in the intended region of operation.
 
-![AC Gain and Phase Response](results/ac_gain_phase_response.png)
+![Biasing Circuit](./figures/biasing_circuit.jpg)
 
 ---
 
-## ⏱️ Transient Response
-Transient simulations were performed with sinusoidal inputs to verify:
-- Linear operation
-- Symmetry of differential outputs
-- Output swing limits
+## Testbenches
 
-![Transient Response](results/transient_response.png)
+### AC / Frequency Response Testbench
+Used for gain/phase response and stability verification.
 
----
-
-### Common-Mode Sweep Verification
-The amplifier was tested across different common-mode voltages to ensure robust operation.
-
-![Transient Response at Vcm = 1V](results/transient_response_vcm_1v.jpg)
+![OTA Testbench](./figures/ota_testbench.png)
 
 ---
 
-## ⚡ Slew Rate Measurement
-The slew rate was measured by configuring the OTA as a **unity-gain follower** and applying a step input using a PWL source.
+## Results (Plots)
 
-- Load capacitance: 1 pF
-- Large-signal linear ramp observed at the output
+### AC Gain & Phase Response
+- Gain/phase plot used to verify stability and bandwidth behavior.
 
-![Slew Rate Response](results/slew_rate_response.png)
+![AC Gain and Phase](./results/ac_gain_phase_response.png)
 
----
+### Transient Response
+- Time-domain behavior under sinusoidal excitation.
 
-## 🔁 Common-Mode Rejection Ratio (CMRR)
-CMRR was evaluated by applying a common-mode AC input while monitoring the differential output response.
+![Transient Response](./results/transient_response.jpg)
 
-Key observation:
-- High low-frequency CMRR indicating strong common-mode suppression
+### Transient Response (Vcm = 1V)
+- Verified operation at a different common-mode point.
 
-![CMRR Response](results/cmrr_response.jpg)
+![Transient Response Vcm 1V](./results/transient_response_vcm_1v.jpg)
 
----
+### Slew Rate
+- Unity-gain follower configuration with **1 pF** load.
 
-## 🔌 Power Supply Rejection Ratio (PSRR)
-PSRR was measured by injecting an AC ripple on the supply rail while grounding the signal input.
+![Slew Rate](./results/slew_rate_response.png)
 
-Key observations:
-- High PSRR at low frequencies
-- Degradation at higher frequencies due to reduced loop gain
+### CMRR
+- Common-mode rejection across frequency.
 
-![PSRR Response](results/psrr_response.jpg)
+![CMRR](./results/cmrr_response.jpg)
 
----
+### PSRR
+- Power-supply rejection across frequency.
 
-## 📊 Key Performance Summary
-
-| Parameter | Value |
-|--------|------|
-| Architecture | Folded-cascode fully differential OTA |
-| Output stage | Class-AB |
-| Supply voltage | 3 V |
-| DC gain | > 100 dB |
-| Slew rate | ~10 V/µs (1 pF load) |
-| Stability | Stable with capacitive load |
-| CMRR | High (low-frequency) |
-| PSRR | High (low-frequency) |
+![PSRR](./results/psrr_response.jpg)
 
 ---
 
-## 🛠 Tools Used
-- Cadence Virtuoso
-- Spectre Simulator
-- Analog Design Environment (ADE)
+## Key Takeaways (What this demonstrates)
+- **Analog IC design flow:** sizing → biasing → verification in Spectre/ADE  
+- **Differential OTA fundamentals:** stability, transient behavior, common-mode sensitivity  
+- **Mixed-signal readiness:** CMRR/PSRR and slew-rate characterization
 
 ---
 
-## 👤 Author
-**Pankaj Wavre**  
-Analog IC Design • CMOS Circuit Design • Mixed-Signal Systems  
-🔗 [LinkedIn](https://www.linkedin.com/in/pankajwavre/)  
-🔗 [GitHub](https://github.com/pankjawavre)
+## Notes for Recruiters
+This repository includes **documentation and measured simulation plots** from Cadence/Spectre runs.  
+(Full Cadence design database is not published.)
+
+---
+
+## Connect
+- **LinkedIn:** https://www.linkedin.com/in/pankajwavre/  
+- **GitHub:** https://github.com/pankjawavre
