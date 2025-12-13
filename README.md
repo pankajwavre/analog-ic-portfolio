@@ -1,10 +1,7 @@
-## 📁 Portfolio Projects
+## 📁 Featured Portfolio Projects
 
-🚧 This portfolio is currently being curated.  
-Flagship projects in Analog and Mixed-Signal IC Design will be added here shortly.
+### 🔹 Bandpass Sigma-Delta Modulator using Gm-C Filter
+A continuous-time mixed-signal Sigma-Delta modulator designed using a Gm-C bandpass filter.  
+This project demonstrates system-level ΣΔ architecture, transistor-level OTA design, loop stability, and noise shaping.
 
-Planned focus areas include:
-- Bandpass Sigma-Delta Modulators
-- Folded & Telescopic Cascode Amplifiers
-- Two-Stage CMOS Operational Amplifiers
-- Biasing and Current Reference Circuits
+➡️ [View Project](bandpass-sigma-delta-modulator/)
